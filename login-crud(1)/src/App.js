@@ -2,11 +2,11 @@ import './App.css';
 import Axios from 'axios'
 
 function App() {
-
+  
   function getData(){
     Axios.get('http://localhost:8080')
-    .then(Response => console.log(Response))
-
+    .then(Response => Response.data)
+    .then(data => console.log(data))
   }
 
   return (
