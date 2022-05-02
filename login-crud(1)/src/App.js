@@ -15,9 +15,20 @@ function App() {
     });
   }
 
+  function getData(){
+    Axios.get('http://localhost:8080/')
+    .then(Response =>Response.data)
+    .then(data => {
+      for(let x = 0; x < data.length; x++){
+        console.log(data[x])
+    }
+    })
+  }
+
   return (
     <div className="App">
       <button onClick={insertData}>Insert data</button>
+      <button onClick={getData}>Get data</button>
       <input  type='text' placeholder='Username' onChange={e => setUser(e.target.value)}></input>
       <input  type='email' placeholder='Email' onChange={e => setEmail(e.target.value)}></input>
       <input  type='password' placeholder='Password' onChange={e => setPswd(e.target.value)}></input>
