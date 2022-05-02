@@ -16,7 +16,7 @@ app.get('/', (req, res) =>{
     let sql = 'SELECT * FROM DADOS'
     connection.query(sql, (err, result) => {
         if(err) throw err
-        res.send(result)
+        res.send(result.data)
     })
 })
 
