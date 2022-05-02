@@ -20,6 +20,17 @@ app.get('/', (req, res) =>{
     })
 })
 
+app.post('/register', (req, res) => {
+    const userName = req.body.nome //userName is the user variable where I insert on the input in App.js == user
+    const password = req.body.senha
+    const email = req.body.email
+    let sql = `INSERT INTO DADOS (nome,email,senha) VALUES (${userName},${email},${password})`
+    connection.query(sql, function(err, result){
+        if(err) throw err
+        console.log(result)
+    })
+})
+
 
 
 app.listen(8080, () => console.log('Rodando...'))
